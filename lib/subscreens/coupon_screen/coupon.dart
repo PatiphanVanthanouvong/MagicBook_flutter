@@ -63,7 +63,10 @@ class _CouPonState extends State<CouPon> {
                       itemSize: 12,
                       controller: controller,
                       onChanged: (value) {},
-                      onSubmitted: (value) {},
+                      onSubmitted: (value) {
+
+                        
+                      },
                       autocorrect: true,
                       placeholder: "ໃສ່ລະຫັດລຸ້ນໂໍໍຊກ",
                     ),

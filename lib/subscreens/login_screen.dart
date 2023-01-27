@@ -14,6 +14,8 @@ class LoginScreens extends StatefulWidget {
 class _LoginScreensState extends State<LoginScreens> {
 
   final formKey = GlobalKey<FormState>();
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,149 +67,152 @@ class _LoginScreensState extends State<LoginScreens> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 40, horizontal: 30),
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("ຊື່ຜູ້ໃຊ້ ຫຼື ອີເມວ"),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none,
-                              ),
-                              hintStyle: TextStyle(fontSize: 15),
-                              filled: true,
-                              fillColor: Color(0xffD9D9D9),
-                              hintText: "nongnouth@email.com ",
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("ຊື່ຜູ້ໃຊ້ ຫຼື ອີເມວ"),
+                            SizedBox(
+                              height: 5,
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text("ລະຫັດຜ່ານ"),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide.none,
-                              ),
-                              filled: true,
-                              fillColor: Color(0xffD9D9D9),
-                              hintStyle: TextStyle(fontSize: 15),
-                              hintText: "Poukham0phu1baow3laiy ",
-                            ),
-                            validator: (value) {
-                              
-                              if(value!.isEmpty){
-                                return "Please Enter Pass";
-                              }
-                              return null;
-                            },
-                            
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PassRecoverScreen(),
-                                  ));
-                            },
-                            child: Text(
-                              "ລືມລະຫັດຜ່ານ?",
-                              style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: Colors.grey,
+                            TextField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide.none,
+                                ),
+                                hintStyle: TextStyle(fontSize: 15),
+                                filled: true,
+                                fillColor: Color(0xffD9D9D9),
+                                hintText: "nongnouth@email.com ",
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                if(formKey.currentState!.validate()) {
-                                  
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Screens(),
-                                    ));
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text("ລະຫັດຜ່ານ"),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            TextFormField(
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide.none,
+                                ),
+                                filled: true,
+                                fillColor: Color(0xffD9D9D9),
+                                hintStyle: TextStyle(fontSize: 15),
+                                hintText: "Poukham0phu1baow3laiy ",
+                              ),
+                              validator: (value) {
+                                
+                                if(value!.isEmpty){
+                                  return "Please Enter Pass";
                                 }
-
-
+                                return null;
                               },
-                              child: Text("ເຂົ້າສູ່ລະບົບ"),
-                              style: ElevatedButton.styleFrom(
-                                shadowColor: Color(0xff4E6859),
-                                backgroundColor: Color(0xff4E6859),
-                              ),
+                              
                             ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(children: <Widget>[
-                            Expanded(
-                              child: new Container(
-                                  margin: const EdgeInsets.only(
-                                      left: 10.0, right: 20.0),
-                                  child: Divider(
-                                    thickness: 2,
-                                    // color: Colors.black,
-                                    // height: 36,
-                                  )),
+                            SizedBox(
+                              height: 5,
                             ),
-                            Text("ຫຼື"),
-                            Expanded(
-                              child: Container(
-                                  margin: const EdgeInsets.only(
-                                      left: 20.0, right: 10.0),
-                                  child: Divider(
-                                    thickness: 2,
-                                    // color: Colors.black,
-                                    // height: 36,
-                                  )),
-                            ),
-                          ]),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            width: double.infinity,
-                            child: OutlinedButton(
-                              onPressed: () {
+                            InkWell(
+                              onTap: () {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => SignUpScreen(),
+                                      builder: (context) => PassRecoverScreen(),
                                     ));
                               },
                               child: Text(
-                                "ສະໝັກສະມາຊິກ",
+                                "ລືມລະຫັດຜ່ານ?",
                                 style: TextStyle(
-                                  color: Color(0xff4E6859),
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.grey,
                                 ),
                               ),
-                              style: ElevatedButton.styleFrom(
-                                disabledBackgroundColor:
-                                    Color(0xff4E6859).withOpacity(1),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Container(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  if(formKey.currentState!.validate()) {
+                                    
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Screens(),
+                                      ));
+                                  }
+                    
+                    
+                                },
+                                child: Text("ເຂົ້າສູ່ລະບົບ"),
+                                style: ElevatedButton.styleFrom(
+                                  shadowColor: Color(0xff4E6859),
+                                  backgroundColor: Color(0xff4E6859),
+                                ),
                               ),
                             ),
-                          ),
-                        ]),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(children: <Widget>[
+                              Expanded(
+                                child: new Container(
+                                    margin: const EdgeInsets.only(
+                                        left: 10.0, right: 20.0),
+                                    child: Divider(
+                                      thickness: 2,
+                                      // color: Colors.black,
+                                      // height: 36,
+                                    )),
+                              ),
+                              Text("ຫຼື"),
+                              Expanded(
+                                child: Container(
+                                    margin: const EdgeInsets.only(
+                                        left: 20.0, right: 10.0),
+                                    child: Divider(
+                                      thickness: 2,
+                                      // color: Colors.black,
+                                      // height: 36,
+                                    )),
+                              ),
+                            ]),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              width: double.infinity,
+                              child: OutlinedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => SignUpScreen(),
+                                      ));
+                                },
+                                child: Text(
+                                  "ສະໝັກສະມາຊິກ",
+                                  style: TextStyle(
+                                    color: Color(0xff4E6859),
+                                  ),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  disabledBackgroundColor:
+                                      Color(0xff4E6859).withOpacity(1),
+                                ),
+                              ),
+                            ),
+                          ]),
+                    ),
                   ),
                 ),
               ),
