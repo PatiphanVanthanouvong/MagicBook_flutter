@@ -12,10 +12,8 @@ class LoginScreens extends StatefulWidget {
 }
 
 class _LoginScreensState extends State<LoginScreens> {
-
   final formKey = GlobalKey<FormState>();
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,13 +106,11 @@ class _LoginScreensState extends State<LoginScreens> {
                                 hintText: "Poukham0phu1baow3laiy ",
                               ),
                               validator: (value) {
-                                
-                                if(value!.isEmpty){
+                                if (value!.isEmpty) {
                                   return "Please Enter Pass";
                                 }
                                 return null;
                               },
-                              
                             ),
                             SizedBox(
                               height: 5,
@@ -142,16 +138,13 @@ class _LoginScreensState extends State<LoginScreens> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () {
-                                  if(formKey.currentState!.validate()) {
-                                    
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => Screens(),
-                                      ));
+                                  if (formKey.currentState!.validate()) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Screens(),
+                                        ));
                                   }
-                    
-                    
                                 },
                                 child: Text("ເຂົ້າສູ່ລະບົບ"),
                                 style: ElevatedButton.styleFrom(

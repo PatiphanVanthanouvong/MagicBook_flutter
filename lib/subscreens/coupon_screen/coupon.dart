@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:magic_book_1/widgets/bookviewlist.dart';
+
 
 import '../../screens/contact_screen/contact_us.dart';
 import '../../screens/contact_screen/feed_screen.dart';
@@ -64,7 +64,6 @@ class _CouPonState extends State<CouPon> {
                       controller: controller,
                       onChanged: (value) {},
                       onSubmitted: (value) {
-
                         
                       },
                       autocorrect: true,
@@ -76,11 +75,33 @@ class _CouPonState extends State<CouPon> {
                   width: 150,
                   child: OutlinedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => SignUpScreen(),
-                      //     ));
+                      showModalBottomSheet(
+            context: context,
+            // color is applied to main screen when modal bottom screen is displayed
+            // barrierColor: Colors.greenAccent,
+            //background color for modal bottom screen
+            backgroundColor: Colors.yellow,
+            //elevates modal bottom screen
+            elevation: 10,
+            // gives rounded corner to modal bottom screen
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            builder: (BuildContext context) {
+              // UDE : SizedBox instead of Container for whitespaces
+              return SizedBox(
+                height: 500,
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const <Widget>[
+                      Text('Congraturation'),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
                     },
                     child: Text(
                       " Enter Coupons",

@@ -4,7 +4,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:magic_book_1/widgets/adver_image_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../widgets/bookviewlist.dart';
+import '../widgets/bookview/freebook.dart';
+import '../widgets/bookview/goodbook.dart';
+import '../widgets/bookview/newbook.dart';
+import '../widgets/bookview/pricebook.dart';
+
 
 
 class HomeScreen extends StatelessWidget {
@@ -51,13 +55,16 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+  
           SafeArea(
             child: Container(
+         
               height: 130,
               padding: EdgeInsets.only(left: 23, top: 27, bottom: 27),
+              
               decoration: BoxDecoration(
                 color: Color(0xff4E6859),
-                borderRadius: BorderRadius.only(
+                borderRadius: BorderRadius.only(      
                   bottomLeft: Radius.circular(15),
                   bottomRight: Radius.circular(15),
                 ),
@@ -455,9 +462,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15.0),
             child: FreeBook(),
           ),
-          SizedBox(height: 100,),
-             
-              SizedBox(height: 100,),
+      
         ],
       ),
     );

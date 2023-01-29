@@ -10,8 +10,6 @@ class GridItemsView extends StatelessWidget {
     "book3",
     "book3",
     "book3",
-    
-    
   ];
 
   @override
