@@ -19,7 +19,7 @@ class _PriceBookState extends State<PriceBook> {
           width: 15,
         ),
         itemBuilder: (context, index) => InkWell(
-          onTap: () {},
+       
           child: Container(
             decoration: BoxDecoration(
               // color: items == 1
@@ -37,11 +37,267 @@ class _PriceBookState extends State<PriceBook> {
               children: [
                 InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => ItemScreen()));
-                  },
+            showModalBottomSheet<String>(
+              enableDrag: true,
+              isScrollControlled: true,
+              // shape: RoundedRectangleBorder(
+              //   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              // ),
+              context: context,
+              builder: (BuildContext context) {
+                return ListView(
+                  children: [
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                    Container(
+                      padding: EdgeInsets.all(24),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              IconButton(
+                                icon: Icon(
+                                  Icons.arrow_back_ios_outlined,
+                                  color: Colors.white,
+                                  size: 20.0,
+                                ),
+                                onPressed: () => Navigator.pop(context),
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  LineIcons.heart,
+                                  color: Colors.white,
+                                  size: 20.0,
+                                ),
+                                onPressed: () => Navigator.pop(context),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 23,
+                          ),
+                          Text(
+                            items3[index].title,
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "By",
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            items3[index].subtitle,
+                            style: TextStyle(fontSize: 22, color: Colors.white),
+                          ),
+                          Container(
+                            child: Image.asset(
+                              items3[index].imageset,
+                              width: 200,
+                              height: 300,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                items3[index].author,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              ),
+                              Text(
+                                "|",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                items3[index].categ,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, //*
+                                    fontSize: 16,
+                                    color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      // color: Colors.black.withOpacity(0.2),
+                      padding: EdgeInsets.all(10),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 120,
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) => Screens(),
+                                      //     ));
+                                    },
+                                    child: Text(
+                                      "ເບີ່ງຕົວຢ່າງ",
+                                      style: TextStyle(
+                                        color: Color(0xff4E6859),
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      disabledBackgroundColor:
+                                          Color(0xff4E6859),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 15,
+                                ),
+                                Container(
+                                  width: 150,
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      // Navigator.push(
+                                      //     context,
+                                      //     MaterialPageRoute(
+                                      //       builder: (context) => SignUpScreen(),
+                                      //     ));
+                                    },
+                                    child: Text(
+                                      items3[index].price,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        // color: Color(0xff4E6859),
+                                      ),
+                                    ),
+                                    style: ElevatedButton.styleFrom(
+                                      shadowColor: Color(0xff4E6859),
+                                      backgroundColor: Color(0xff4E6859),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RatingBar.builder(
+                                  initialRating: 2.5,
+                                  minRating: 0.5,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemSize: 20,
+                                  itemBuilder: (context, _) => Icon(
+                                    LineIcons.heartAlt,
+                                    color: Colors.redAccent,
+                                  ),
+                                  onRatingUpdate: (rating) {},
+                                ),
+                                SizedBox(width: 5),
+                                Text("(2688)"),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                              Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.shoppingBag,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                             Text(
+                                          "Wish",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
+                                        ),
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.shoppingCart,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                               Text(
+                                          "Follow",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
+                                        ),
+
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.alternateShareSquare,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                            Text(
+                                          "Share",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
+                                        ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
                   child: Container(
                     child: Image.asset(
                       items3[index].imageset,
@@ -67,7 +323,9 @@ class _PriceBookState extends State<PriceBook> {
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.w600),
+                            
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
@@ -130,39 +388,53 @@ class _PriceBookState extends State<PriceBook> {
   }
 }
 
-class PriceBookt {
+class Bookt {
   final String title;
   final String subtitle;
   final String imageset;
   final String price;
-  PriceBookt({
+  final String author;
+  final String categ;
+  Bookt({
     required this.title,
     required this.subtitle,
     required this.imageset,
     required this.price,
+    required this.author,
+    required this.categ,
   });
 }
 
-List<PriceBookt> items3 = [
-  PriceBookt(
-    title: 'ບົວແດງ',
-    subtitle: 'KORAWIA | KORAWIA',
-    imageset: "images/yangyang.jpeg",
-    price: "50.000 ₭",
+List<Bookt> items3 = [
+  Bookt(
+    title: 'BTS Marketing ກົນລະຍຸດຕະຫຼາດໂລກ',
+    subtitle: 'ພັດຮະຍອງຈຸນ | ພັດຮະຍອງຈຸນ',
+    imageset: "images/product12.png",
+    price: "77.000 ₭",
+    author: "ພັດຮະຍອງຈຸນ ",
+    categ: "marketing",
   ),
-  PriceBookt(
-      title: 'Hahahhahah',
-      imageset: 'images/p11.png',
+  Bookt(
+      title: 'ຣິກເຕີ | CRUEL',
+      imageset: 'images/product14.png',
       price: "50.000 ₭",
-      subtitle: 'KORAWIA | KORAWIA'),
-  PriceBookt(
-      title: '14:00',
-      imageset: 'images/p12.png',
+      subtitle: 'ນັດເທຍ | ນັດເທຍ',
+       author: "ນັດເທຍ ",
+    categ: "love drama",),
+      
+  Bookt(
+      title: 'Easy American food for beginner',
+      imageset: 'images/product17.png',
+    
       price: "50.000 ₭",
-      subtitle: 'KORAWIA | KORAWIA'),
-  PriceBookt(
-      title: '15:00',
-      imageset: 'images/p13.png',
+       author: " jamie oliveoil",
+    categ: "food",
+      subtitle: 'Jamie oliveoil | chillie'),
+  Bookt(
+      title: 'After 0ur Decade Series A',
+      imageset: 'images/product16.png',
       price: "50.000 ₭",
-      subtitle: 'KORAWIA | KORAWIA'),
+       author: "SixmaR.J  ",
+    categ: "action",
+      subtitle: 'SixmaR.J | SixmaR.J'),
 ];

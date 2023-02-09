@@ -104,8 +104,9 @@ class ContactUs extends StatelessWidget {
             Divider(
               thickness: 1,
             ),
-            SizedBox(height: 10,),
-
+            SizedBox(
+              height: 10,
+            ),
             Container(
               width: double.infinity,
               // color: Colors.black.withOpacity(0.2),
@@ -119,9 +120,9 @@ class ContactUs extends StatelessWidget {
                 ),
               ),
             ),
-            
-            SizedBox(height: 15,),
-
+            SizedBox(
+              height: 15,
+            ),
             Container(
               width: double.infinity,
               height: 200,
@@ -152,7 +153,7 @@ class ContactUs extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                         Text(
+                        Text(
                           ' 78357352',
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -208,34 +209,17 @@ class ContactUs extends StatelessWidget {
                         ),
                       ],
                     ),
-
-
                   ],
                 ),
               ),
             ),
-             
             SizedBox(height: 10),
-            
-              Container(
-              width: double.infinity,
-              // color: Colors.black.withOpacity(0.2),
-              child: Text(
-                "ອື່ນໆ",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
-              ),
+            SizedBox(
+              height: 15,
             ),
-            SizedBox(height: 15,),
           ],
         ),
-        
       ),
-      
     );
   }
 }

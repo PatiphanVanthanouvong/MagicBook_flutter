@@ -4,7 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'feed_screen.dart';
 import 'contact_us.dart';
-import '../../widgets/grid_items.dart';
+
+import 'notification.dart';
 
 
 class ContactScreen extends StatefulWidget {
@@ -61,7 +62,7 @@ class _ContactScreenState extends State<ContactScreen> {
               SingleChildScrollView(
                 
               
-                 child: GridItemsView(),
+                 child: NotiScreen(),
               
                 
               ),

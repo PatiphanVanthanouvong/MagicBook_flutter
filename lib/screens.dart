@@ -4,7 +4,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:magic_book_1/screens/mybook.dart';
 
-import 'package:magic_book_1/screens/setting_screen.dart';
+import 'package:magic_book_1/screens/setting/setting_screen.dart';
 
 
 import 'screens/contact_screen/contactscreen.dart';

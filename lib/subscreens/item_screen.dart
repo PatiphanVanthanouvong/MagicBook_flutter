@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../widgets/product_image_slider.dart';
+
 
 class ItemScreen extends StatelessWidget {
 
@@ -24,9 +24,7 @@ class ItemScreen extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  Center(
-                    child: ProductImagesSlider(),
-                  ),
+                 
                   Padding(
                     padding: EdgeInsets.only(left: 15, top: 20),
                     child: InkWell(

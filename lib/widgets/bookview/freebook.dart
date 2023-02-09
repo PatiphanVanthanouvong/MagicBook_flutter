@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:line_icons/line_icons.dart';
 
 
 class FreeBook extends StatefulWidget {
@@ -27,38 +26,40 @@ class _FreeBookState extends State<FreeBook> {
   }
 }
 
-class FreeBookt {
+class Bookt {
   final String title;
   final String subtitle;
   final String imageset;
 
-  FreeBookt({
+  Bookt({
     required this.title,
     required this.subtitle,
     required this.imageset,
   });
 }
 
-List<FreeBookt> items = [
-  FreeBookt(
+List<Bookt> items = [
+  Bookt(
     title: 'Illustration Collection',
     subtitle: 'KORAWIA | KORAWIA',
-    imageset: "images/p13.png",
+    imageset: "images/product11.png",
   ),
-  FreeBookt(
-      title: 'ບົວແດງ', imageset: 'images/p14.png', subtitle: 'ດວງຈໍາປາ  | XXX'),
-  FreeBookt(
+  Bookt(
+      title: 'ບົວແດງ',
+      imageset: 'images/product13.png',
+      subtitle: 'ດວງຈໍາປາ  | XXX'),
+  Bookt(
       title: 'ກອງພັນທີ 2',
-      imageset: 'images/p15.png',
+      imageset: 'images/product9.png',
       subtitle: 'ສຸວັນທອນ  | XXX'),
-  FreeBookt(
+  Bookt(
       title: 'ເຈົ້າເວົ້າໄດ້ ຊີວິດກ້າວໜ້າໄວ',
-      imageset: 'images/p16.png',
+      imageset: 'images/product10.png',
       subtitle: 'ທອງດີ | XXX'),
 ];
 
 Widget buildCard({
-  required FreeBookt items,
+  required Bookt items,
 }) =>
     Container(
       decoration: BoxDecoration(
@@ -83,28 +84,7 @@ Widget buildCard({
                 fit: BoxFit.cover,
                 child: InkWell(
                   onTap: () {
-                    //              showModalBottomSheet<void>(
-                    //   context: context,
-                    //   builder: (BuildContext context) {
-                    //     return Container(
-                    //       height: 200,
-                    //       color: Colors.amber,
-                    //       child: Center(
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           mainAxisSize: MainAxisSize.min,
-                    //           children: <Widget>[
-                    //             const Text('Modal BottomSheet'),
-                    //             ElevatedButton(
-                    //               child: const Text('Close BottomSheet'),
-                    //               onPressed: () => Navigator.pop(context),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     );
-                    //   },
-                    // );
+                    //             
                   },
                 ),
               ),

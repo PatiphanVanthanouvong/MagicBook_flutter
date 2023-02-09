@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:magic_book_1/widgets/bookview/bookread.dart';
+
 
 class GoodBook extends StatefulWidget {
+  // final NewBookt item;
+
+  // const GoodBook({super.key, required this.item});
   @override
   State<GoodBook> createState() => _GoodBookState();
 }
@@ -11,6 +16,7 @@ class GoodBook extends StatefulWidget {
 class _GoodBookState extends State<GoodBook> {
   @override
   Widget build(BuildContext context) {
+    // print(widget.item);
     return Container(
       height: 320,
       child: ListView.separated(
@@ -104,7 +110,7 @@ class _GoodBookState extends State<GoodBook> {
                                   Text(
                                     items2[index].subtitle,
                                     style: TextStyle(
-                                        fontSize: 22, color: Colors.green),
+                                        fontSize: 22, color: Colors.white),
                                   ),
                                   Container(
                                     child: Image.asset(
@@ -123,12 +129,17 @@ class _GoodBookState extends State<GoodBook> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
+                                        Icon(
+                                              LineIcons.bookReader,
+                                              color: Colors.white,
+                                              size: 20,
+                                            ),
                                       Text(
                                         items2[index].author,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
-                                            color: Colors.green),
+                                            color: Colors.white),
                                       ),
                                       Text(
                                         "|",
@@ -137,12 +148,17 @@ class _GoodBookState extends State<GoodBook> {
                                           color: Colors.white,
                                         ),
                                       ),
+                                        Icon(
+                                              LineIcons.tags,
+                                              color: Colors.white,
+                                              size: 20,
+                                            ),
                                       Text(
                                         items2[index].categ,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold, //*
                                             fontSize: 16,
-                                            color: Colors.green),
+                                            color: Colors.white),
                                       ),
                                     ],
                                   ),
@@ -167,11 +183,11 @@ class _GoodBookState extends State<GoodBook> {
                                           width: 120,
                                           child: OutlinedButton(
                                             onPressed: () {
-                                              // Navigator.push(
-                                              //     context,
-                                              //     MaterialPageRoute(
-                                              //       builder: (context) => Screens(),
-                                              //     ));
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => BooksRead(),
+                                                  ));
                                             },
                                             child: Text(
                                               "ເບີ່ງຕົວຢ່າງ",
@@ -245,50 +261,58 @@ class _GoodBookState extends State<GoodBook> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Icon(
-                                          LineIcons.shoppingBag,
-                                          color: Color(0xff4E6859),
-                                          size: 35,
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.shoppingBag,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                             Text(
+                                          "Wish",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
                                         ),
-                                        Icon(
-                                          LineIcons.shoppingCart,
-                                          color: Color(0xff4E6859),
-                                          size: 35,
+                                          ],
                                         ),
-                                        Icon(
-                                          LineIcons.alternateShareSquare,
-                                          color: Color(0xff4E6859),
-                                          size: 35,
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.plusCircle,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                               Text(
+                                          "Follow",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
+                                        ),
+
+                                          ],
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(
+                                              LineIcons.alternateShareSquare,
+                                              color: Color(0xff4E6859),
+                                              size: 35,
+                                            ),
+                                            Text(
+                                          "Share",
+                                          style: TextStyle(
+                                            color: Color(0xff4E6859),
+                                          ),
+                                        ),
+                                          ],
                                         ),
                                       ],
                                     ),
                                     SizedBox(
                                       height: 10,
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Text(
-                                          "Wish",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-                                        Text(
-                                          "Follow",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-                                        Text(
-                                          "Share",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-                                      ],
-                                    )
+                                  
                                   ],
                                 ),
                               ),
@@ -386,14 +410,14 @@ class _GoodBookState extends State<GoodBook> {
   }
 }
 
-class GoodBookt {
+class Bookt {
   final String title;
   final String subtitle;
   final String imageset;
   final String price;
   final String author;
   final String categ;
-  GoodBookt({
+  Bookt({
     required this.title,
     required this.subtitle,
     required this.imageset,
@@ -403,34 +427,34 @@ class GoodBookt {
   });
 }
 
-List<GoodBookt> items2 = [
-  GoodBookt(
+List<Bookt> items2 = [
+  Bookt(
     title: 'MINDSET',
     subtitle: 'Carol Dweck | Secret',
     imageset: "images/product5.png",
-    price: "50.000 ₭",
+    price: "66.000 ₭",
     author: "Carol Dweck ",
     categ: "Pyscho",
   ),
-  GoodBookt(
+  Bookt(
     title: 'IKIGAI',
     imageset: 'images/product6.png',
-    price: "50.000 ₭",
+    price: "75.000 ₭",
     subtitle: 'Héctor García | Naruto',
     author: "Héctor García  ",
     categ: "Life",
   ),
-  GoodBookt(
+  Bookt(
       title: 'GOOD VIBES , GOOD LIFE',
       imageset: 'images/product7.png',
-      price: "50.000 ₭",
+      price: "85.000 ₭",
       author: "Vex King  ",
       categ: "Daily life",
       subtitle: 'Vex King | xxx'),
-  GoodBookt(
+  Bookt(
       title: 'INTO THE MAGIC SHOP',
       imageset: 'images/product8.png',
-      price: "50.000 ₭",
+      price: "100.000 ₭",
       author: "James R ",
       categ: "Fantasy",
       subtitle: 'James R |  Amarin'),

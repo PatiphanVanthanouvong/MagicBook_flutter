@@ -3,38 +3,44 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
-import '../subscreens/transaction_screen.dart';
+
 
 class FollowedScreen extends StatelessWidget {
   TextEditingController controller =
       TextEditingController(text: " ຄົ້ນຫາໜັງສືຂອງທ່ານ");
 
-  var pNames = [
-    "IKAGAI",
-    "G928492849494",
-    "book3",
+  var cprint = [
+    "Kohei Horikoshi",
+    "Hapor cawling",
+    "Hogwat uni",
     "book1",
   ];
 
-  var pSizes = [
+  var author = [
     
-    "J.K rolling",
-    "Prayut",
+    "Kohei Horikoshi",
+    "C.S lewis", 
+       "J.K rolling",
   ];
 
   var nameList = [
-    "KORAWIA | KORAWIA",
-    "ດວງຈໍາປາ| Nongnouth",
+    "My Hero Acadamia | Kohei Horikoshi",
+    "The Chronicles of Narnia | C.S lewis",
+      "Fantastic Beast | J.K rolling",
  
   ];
   var imageList = [
-    "product6",
-    "product7",
+ "images/fol1.png",
+  "images/fol2.jpg",
+   "images/fol3.jpg",
+
   ];
 
   var priceList = [
     
     "150.000 ₭",
+    "95.000 ₭",
+    "320.000 ₭",
     "95.000 ₭",
   ];
   @override
@@ -42,50 +48,48 @@ class FollowedScreen extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SafeArea(
-            child: Container(
-              padding: EdgeInsets.only(top: 40, bottom: 10),
-              
-              decoration: BoxDecoration(
-                 color: Color(0xff4E6859),
-                borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(15),
-                bottomRight: Radius.circular(15),
-              ),
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    'ໜັງສືທີ່ກົດຕິດຕາມ',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.cinzelDecorative(
-                      textStyle: Theme.of(context).textTheme.headline4,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600,
+          Container(
+            padding: EdgeInsets.only(top: 60, bottom: 10),
+            
+            decoration: BoxDecoration(
+               color: Color(0xff4E6859),
+              borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(15),
+              bottomRight: Radius.circular(15),
+            ),
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'ໜັງສືທີ່ກົດຕິດຕາມ',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.cinzelDecorative(
+                    textStyle: Theme.of(context).textTheme.headline4,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 40, vertical: 15),
+                  child: CupertinoSearchTextField(
+                    decoration: BoxDecoration(
                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 40, vertical: 15),
-                    child: CupertinoSearchTextField(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                      itemColor: CupertinoColors.black,
-                      itemSize: 12,
-                      controller: controller,
-                      onChanged: (value) {},
-                      onSubmitted: (value) {},
-                      autocorrect: true,
+                    style: TextStyle(
+                      fontSize: 12,
                     ),
+                    itemColor: CupertinoColors.black,
+                    itemSize: 12,
+                    controller: controller,
+                    onChanged: (value) {},
+                    onSubmitted: (value) {},
+                    autocorrect: true,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           SizedBox(
@@ -111,7 +115,7 @@ class FollowedScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             child: Column(
               children: [
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < 3; i++)
                   Card(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(
@@ -127,7 +131,7 @@ class FollowedScreen extends StatelessWidget {
                           width: 90,
                           height: 130,
                           child: Image.asset(
-                            "images/${imageList[i]}.png",
+                          imageList[i],
                             fit: BoxFit.cover,
                           ),
                           decoration: BoxDecoration(color: Colors.white.withOpacity(0.2)),
@@ -143,7 +147,7 @@ class FollowedScreen extends StatelessWidget {
                             children: [
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 5, vertical: 10),
+                                    horizontal: 5, vertical: 8),
                                 color: Colors.white.withOpacity(0.2),
                                 child: Text(
                                   nameList[i],
@@ -175,7 +179,7 @@ class FollowedScreen extends StatelessWidget {
                                         Container(
                                           
                                           child: Text(
-                                            pSizes[i],
+                                            author[i],
                                             style: TextStyle(
                                               color: Colors.black54,
                                             ),
@@ -201,7 +205,7 @@ class FollowedScreen extends StatelessWidget {
                                         Container(
                                           
                                           child: Text(
-                                            pSizes[i],
+                                            cprint[i],
                                             style: TextStyle(
                                               color: Colors.black54,
                                             ),
@@ -254,53 +258,7 @@ class FollowedScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Total",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        "\$9999",
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const TransactionScreen()),
-                      );
-                    },
-                    child: Container(
-                      height: 50,
-                      width: MediaQuery.of(context).size.width / 2 * 2,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.redAccent,
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Order Now",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                
         ],
       ),
     );
