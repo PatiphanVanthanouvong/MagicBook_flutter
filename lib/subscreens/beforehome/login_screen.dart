@@ -13,6 +13,7 @@ class LoginScreens extends StatefulWidget {
 
 class _LoginScreensState extends State<LoginScreens> {
   bool? _passwordVisible;
+  late String user;
 
   final formKey = GlobalKey<FormState>();
   TextEditingController _passwordController = TextEditingController();
@@ -97,6 +98,9 @@ class _LoginScreensState extends State<LoginScreens> {
                                 fillColor: Color(0xffD9D9D9),
                                 hintText: "magicbook69@email.com ",
                               ),
+                              onChanged: (text) {
+                                user = text;
+                              },
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return "ກະລຸນາໃສ່ຊື່ຜູ້ໃຊ້ ຫຼື ອີເມວ";
@@ -181,7 +185,8 @@ class _LoginScreensState extends State<LoginScreens> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => Screens(),
+                                            builder: (context) =>
+                                                Screens(user: user),
                                           ));
                                     }
                                   },

@@ -150,7 +150,7 @@ class Editprofile extends StatelessWidget {
                       color: Color(0xff4E6859),
                       pressEvent: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Screens()));
+                            MaterialPageRoute(builder: (context) => Screens(user: '',)));
                       },
                     ),
                     SizedBox(

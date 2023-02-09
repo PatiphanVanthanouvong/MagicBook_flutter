@@ -5,17 +5,21 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:magic_book_1/screens/setting/changepass.dart';
 import 'package:magic_book_1/screens/setting/editprofile.dart';
 import 'package:magic_book_1/subscreens/beforehome/welcome_screen.dart';
-
 import 'aboutus.dart';
 import 'coupon_screen/coupon.dart';
 import '../../widgets/setting_widget_profile.dart';
 
 class SettingScreen extends StatefulWidget {
+
+    String user;
+      SettingScreen({ required this.user}): super() ;
   @override
-  _SettingScreenState createState() => _SettingScreenState();
+  _SettingScreenState createState() => _SettingScreenState(user);
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+    late String user;
+    _SettingScreenState(this.user);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +87,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    "Nong Phoy",
+                user,
                     textAlign: TextAlign.justify,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -92,8 +96,9 @@ class _SettingScreenState extends State<SettingScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                     const SizedBox(height: 2),
                   Text(
-                    "Customer-New@gmail.com",
+                    "Customer.Test@gmail.com",
                     textAlign: TextAlign.justify,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,

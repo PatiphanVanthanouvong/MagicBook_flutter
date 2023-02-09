@@ -153,7 +153,7 @@ class ChangePass extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Screens(),
+                                      builder: (context) => Screens(user: '',),
                                     ));
                               }
                             },

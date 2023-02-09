@@ -12,21 +12,26 @@ import 'screens/followed_screen.dart';
 import 'screens/home_screeen.dart';
 
 class Screens extends StatefulWidget {
-  const Screens({super.key});
+
+  String user;
+  Screens({ required this.user}): super() ;
 
   @override
-  State<Screens> createState() => _ScreensState();
+  State<Screens> createState() => _ScreensState(user);
 }
 
 class _ScreensState extends State<Screens> {
+ 
+   late String user;
+_ScreensState(this.user);
   int _selectedIndex = 0;
-  static List<Widget> _widgetOption = <Widget>[
+  late List<Widget> _widgetOption = <Widget>[
     
-
+    
     HomeScreen(),
      MyBook(),
     FollowedScreen(),
-    SettingScreen(),
+    SettingScreen(user: user),
     ContactScreen(),
   ];
 
