@@ -9,22 +9,22 @@ import 'aboutus.dart';
 import 'coupon_screen/coupon.dart';
 import '../../widgets/setting_widget_profile.dart';
 
+// ignore: must_be_immutable
 class SettingScreen extends StatefulWidget {
-
-    String user;
-      SettingScreen({ required this.user}): super() ;
+  String user;
+  SettingScreen({required this.user}) : super();
   @override
   _SettingScreenState createState() => _SettingScreenState(user);
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-    late String user;
-    _SettingScreenState(this.user);
+  late String user;
+  _SettingScreenState(this.user);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading : false,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xff4E6859),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -47,7 +47,6 @@ class _SettingScreenState extends State<SettingScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-          
             Container(
               decoration: BoxDecoration(),
               padding: const EdgeInsets.all(20),
@@ -87,7 +86,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                user,
+                    user,
                     textAlign: TextAlign.justify,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -96,7 +95,7 @@ class _SettingScreenState extends State<SettingScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                     const SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   Text(
                     "Customer.Test@gmail.com",
                     textAlign: TextAlign.justify,
@@ -120,8 +119,10 @@ class _SettingScreenState extends State<SettingScreen> {
                     text: 'ເເກ້ໄຂໜ້າຜູ້ໃຊ້',
                     color: Color(0xff4E6859),
                     pressEvent: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Editprofile()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Editprofile()));
                     },
                   ),
                   const SizedBox(

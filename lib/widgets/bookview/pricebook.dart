@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
+
+import 'suggestbook.dart';
+
 class PriceBook extends StatefulWidget {
   @override
   State<PriceBook> createState() => _PriceBookState();
@@ -19,7 +22,6 @@ class _PriceBookState extends State<PriceBook> {
           width: 15,
         ),
         itemBuilder: (context, index) => InkWell(
-       
           child: Container(
             decoration: BoxDecoration(
               // color: items == 1
@@ -37,267 +39,8 @@ class _PriceBookState extends State<PriceBook> {
               children: [
                 InkWell(
                   onTap: () {
-            showModalBottomSheet<String>(
-              enableDrag: true,
-              isScrollControlled: true,
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              // ),
-              context: context,
-              builder: (BuildContext context) {
-                return ListView(
-                  children: [
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    Container(
-                      padding: EdgeInsets.all(24),
-                      decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(20),
-                            bottomRight: Radius.circular(20)),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconButton(
-                                icon: Icon(
-                                  Icons.arrow_back_ios_outlined,
-                                  color: Colors.white,
-                                  size: 20.0,
-                                ),
-                                onPressed: () => Navigator.pop(context),
-                              ),
-                              IconButton(
-                                icon: Icon(
-                                  LineIcons.heart,
-                                  color: Colors.white,
-                                  size: 20.0,
-                                ),
-                                onPressed: () => Navigator.pop(context),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 23,
-                          ),
-                          Text(
-                            items3[index].title,
-                            style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "By",
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            items3[index].subtitle,
-                            style: TextStyle(fontSize: 22, color: Colors.white),
-                          ),
-                          Container(
-                            child: Image.asset(
-                              items3[index].imageset,
-                              width: 200,
-                              height: 300,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                items3[index].author,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                    color: Colors.white),
-                              ),
-                              Text(
-                                "|",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                items3[index].categ,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, //*
-                                    fontSize: 16,
-                                    color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      // color: Colors.black.withOpacity(0.2),
-                      padding: EdgeInsets.all(10),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  width: 120,
-                                  child: OutlinedButton(
-                                    onPressed: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //       builder: (context) => Screens(),
-                                      //     ));
-                                    },
-                                    child: Text(
-                                      "ເບີ່ງຕົວຢ່າງ",
-                                      style: TextStyle(
-                                        color: Color(0xff4E6859),
-                                      ),
-                                    ),
-                                    style: ElevatedButton.styleFrom(
-                                      disabledBackgroundColor:
-                                          Color(0xff4E6859),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 15,
-                                ),
-                                Container(
-                                  width: 150,
-                                  child: OutlinedButton(
-                                    onPressed: () {
-                                      // Navigator.push(
-                                      //     context,
-                                      //     MaterialPageRoute(
-                                      //       builder: (context) => SignUpScreen(),
-                                      //     ));
-                                    },
-                                    child: Text(
-                                      items3[index].price,
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        // color: Color(0xff4E6859),
-                                      ),
-                                    ),
-                                    style: ElevatedButton.styleFrom(
-                                      shadowColor: Color(0xff4E6859),
-                                      backgroundColor: Color(0xff4E6859),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                RatingBar.builder(
-                                  initialRating: 2.5,
-                                  minRating: 0.5,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemSize: 20,
-                                  itemBuilder: (context, _) => Icon(
-                                    LineIcons.heartAlt,
-                                    color: Colors.redAccent,
-                                  ),
-                                  onRatingUpdate: (rating) {},
-                                ),
-                                SizedBox(width: 5),
-                                Text("(2688)"),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                              Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Icon(
-                                              LineIcons.shoppingBag,
-                                              color: Color(0xff4E6859),
-                                              size: 35,
-                                            ),
-                                             Text(
-                                          "Wish",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-                                          ],
-                                        ),
-                                        Column(
-                                          children: [
-                                            Icon(
-                                              LineIcons.shoppingCart,
-                                              color: Color(0xff4E6859),
-                                              size: 35,
-                                            ),
-                                               Text(
-                                          "Follow",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-
-                                          ],
-                                        ),
-                                        Column(
-                                          children: [
-                                            Icon(
-                                              LineIcons.alternateShareSquare,
-                                              color: Color(0xff4E6859),
-                                              size: 35,
-                                            ),
-                                            Text(
-                                          "Share",
-                                          style: TextStyle(
-                                            color: Color(0xff4E6859),
-                                          ),
-                                        ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            );
-          },
+                    Pricebooksheet(context, index);
+                  },
                   child: Container(
                     child: Image.asset(
                       items3[index].imageset,
@@ -323,7 +66,6 @@ class _PriceBookState extends State<PriceBook> {
                             color: Colors.black,
                             fontSize: 18,
                             fontWeight: FontWeight.w600),
-                            
                       ),
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -386,6 +128,439 @@ class _PriceBookState extends State<PriceBook> {
       ),
     );
   }
+
+  Future<String?> Pricebooksheet(BuildContext context, int index) {
+    return showModalBottomSheet<String>(
+      enableDrag: true,
+      isScrollControlled: true,
+      // shape: RoundedRectangleBorder(
+      //   borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      // ),
+      context: context,
+      builder: (BuildContext context) {
+        return ListView(
+          children: [
+            // SizedBox(
+            //   height: 10,
+            // ),
+            Container(
+              padding: EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20)),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios_outlined,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          LineIcons.heart,
+                          color: Colors.white,
+                          size: 20.0,
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 23,
+                  ),
+                  Text(
+                    items3[index].title,
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "By",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    items3[index].subtitle,
+                    style: TextStyle(fontSize: 22, color: Colors.white),
+                  ),
+                  Container(
+                    child: Image.asset(
+                      items3[index].imageset,
+                      width: 200,
+                      height: 300,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        items3[index].author,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white),
+                      ),
+                      Text(
+                        "|",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        items3[index].categ,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, //*
+                            fontSize: 16,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              // color: Colors.black.withOpacity(0.2),
+              padding: EdgeInsets.all(10),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 120,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => Screens(),
+                              //     ));
+                            },
+                            child: Text(
+                              "ເບີ່ງຕົວຢ່າງ",
+                              style: TextStyle(
+                                color: Color(0xff4E6859),
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              disabledBackgroundColor: Color(0xff4E6859),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Container(
+                          width: 150,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //       builder: (context) => SignUpScreen(),
+                              //     ));
+                            },
+                            child: Text(
+                              items3[index].price,
+                              style: TextStyle(
+                                color: Colors.white,
+                                // color: Color(0xff4E6859),
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shadowColor: Color(0xff4E6859),
+                              backgroundColor: Color(0xff4E6859),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RatingBar.builder(
+                          initialRating: 2.5,
+                          minRating: 0.5,
+                          direction: Axis.horizontal,
+                          allowHalfRating: true,
+                          itemCount: 5,
+                          itemSize: 20,
+                          itemBuilder: (context, _) => Icon(
+                            LineIcons.heartAlt,
+                            color: Colors.redAccent,
+                          ),
+                          onRatingUpdate: (rating) {},
+                        ),
+                        SizedBox(width: 5),
+                        Text("(2688)"),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Icon(
+                              LineIcons.shoppingBag,
+                              color: Color(0xff4E6859),
+                              size: 35,
+                            ),
+                            Text(
+                              "Wish",
+                              style: TextStyle(
+                                color: Color(0xff4E6859),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              LineIcons.shoppingCart,
+                              color: Color(0xff4E6859),
+                              size: 35,
+                            ),
+                            Text(
+                              "Follow",
+                              style: TextStyle(
+                                color: Color(0xff4E6859),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              LineIcons.alternateShareSquare,
+                              color: Color(0xff4E6859),
+                              size: 35,
+                            ),
+                            Text(
+                              "Share",
+                              style: TextStyle(
+                                color: Color(0xff4E6859),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "ທ້າວນ້ອຍນັ້ນໃສຊື່ ແລະ ອ່ອນຕໍ່ໂລກ ລາວເດີນທາງໄປຍັງ ດວງດາວຕ່າງໆ ແລະ ພົບເຫັນຜູ້ຄົນຫຼາຍຫຼາຍ",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff4E6859),
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "ທຸກຄົນ ລ້ວນແຕ່ເປັນຜູ້ໃຫຍ່ ແລະ ເຕັມໄປດ້ວຍຄວາມຄິດທີ່ ທ້າວນ້ອຍບໍ່ມີວັນເຂົ້າໃຈ...",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xff4E6859),
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    Text(
+                      'ຂໍ້ມູນ',
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'ຊະນິດໄຟສ໌',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          'pdf, epub (ສາລະບານ)',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'ວັນທີ່ວາງຂາຍ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          '10 ກຸມພາ 2023',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'ຈໍານວນໜ້າ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          '300ໜ້າ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'ລາຄາໜັງສືເປັນເຫຼັ້ມຈິງ',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Text(
+                          '80.000 ₭',
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Container(
+                width: double.infinity,
+                height: 230,
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                    color: Colors.black),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text(
+                        'ເລື່ອງທີ່ມັກຈະຊື້ດ້ວຍກັນ',
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    SuggestBook(),
+                  ],
+                )),
+          ],
+        );
+      },
+    );
+  }
 }
 
 class Bookt {
@@ -415,26 +590,25 @@ List<Bookt> items3 = [
     categ: "marketing",
   ),
   Bookt(
-      title: 'ຣິກເຕີ | CRUEL',
-      imageset: 'images/product14.png',
-      price: "50.000 ₭",
-      subtitle: 'ນັດເທຍ | ນັດເທຍ',
-       author: "ນັດເທຍ ",
-    categ: "love drama",),
-      
+    title: 'ຣິກເຕີ | CRUEL',
+    imageset: 'images/product14.png',
+    price: "50.000 ₭",
+    subtitle: 'ນັດເທຍ | ນັດເທຍ',
+    author: "ນັດເທຍ ",
+    categ: "love drama",
+  ),
   Bookt(
       title: 'Easy American food for beginner',
       imageset: 'images/product17.png',
-    
       price: "50.000 ₭",
-       author: " jamie oliveoil",
-    categ: "food",
+      author: " jamie oliveoil",
+      categ: "food",
       subtitle: 'Jamie oliveoil | chillie'),
   Bookt(
       title: 'After 0ur Decade Series A',
       imageset: 'images/product16.png',
       price: "50.000 ₭",
-       author: "SixmaR.J  ",
-    categ: "action",
+      author: "SixmaR.J  ",
+      categ: "action",
       subtitle: 'SixmaR.J | SixmaR.J'),
 ];
