@@ -1,15 +1,21 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+import '../screens.dart';
 import '../widgets/setting_widget_profile.dart';
 
 class CartScreen extends StatefulWidget {
+    String user;
+  CartScreen({required this.user}) : super();
   @override
-  State<CartScreen> createState() => _CartScreenState();
+  State<CartScreen> createState() => _CartScreenState(user);
 }
 
 class _CartScreenState extends State<CartScreen> {
+   late String user;
+
   var author = [
     "Tatsuya Endo",
     "One",
@@ -29,11 +35,11 @@ class _CartScreenState extends State<CartScreen> {
     "KORAWIA | KORAWIA",
   ];
   var imageList = [
-   "images/f1.webp",
-     "images/f2.webp",
-
- 
+    "images/f1.webp",
+    "images/f2.webp",
   ];
+  
+  _CartScreenState(String user);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +99,6 @@ class CartWidget extends StatelessWidget {
           children: [
             for (int i = 0; i < 2; i++)
               Card(
-                
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     color: Colors.white,
@@ -108,7 +113,7 @@ class CartWidget extends StatelessWidget {
                       width: 90,
                       height: 130,
                       child: Image.asset(
-                       imageList[i],
+                        imageList[i],
                         fit: BoxFit.cover,
                       ),
                       decoration:
@@ -290,26 +295,39 @@ class CartWidget extends StatelessWidget {
             ),
             SizedBox(height: 15),
             Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 40,
-                  width: MediaQuery.of(context).size.width / 1.4,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.redAccent,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "ຈ່າຍເງິນ",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+              child: AnimatedButton(
+                width: MediaQuery.of(context).size.width / 1.4,
+                borderRadius: BorderRadius.circular(22),
+                text: "ຈ່າຍເງິນ",
+                buttonTextStyle: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
+                color: Colors.redAccent,
+                pressEvent: () {
+                  AwesomeDialog(
+                    btnOkColor: Color.fromARGB(255, 51, 126, 82),
+                    context: context,
+                    animType: AnimType.leftSlide,
+                    headerAnimationLoop: true,
+                    dialogType: DialogType.success,
+                    showCloseIcon: true,
+                    title: 'ທຸລະກໍາສໍາເລັດ',
+                    desc: 'ທ່ານສາມາດເຂົ້າອ່ານປື້ມໄດ້ທັນທີ',
+                    btnOkOnPress: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Screens(
+                              user: '',
+                            ),
+                          ));
+                    },
+                    btnOkIcon: Icons.check_circle,
+                    onDismissCallback: (type) {},
+                  ).show();
+                },
               ),
             ),
           ],
