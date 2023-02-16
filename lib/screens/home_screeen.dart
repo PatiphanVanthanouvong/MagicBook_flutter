@@ -10,15 +10,8 @@ import '../widgets/bookview/goodbook.dart';
 import '../widgets/bookview/newbook.dart';
 import '../widgets/bookview/pricebook.dart';
 
-class HomeScreen extends StatefulWidget {
-  HomeScreen({required String user});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late String user;
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       "images/product15.png",
       "images/f2.webp",
       "images/s3.jpg",
+     
     ];
 
     var iconImageList = [
@@ -94,9 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CartScreen(
-                                  user: '',
-                                )));
+                            builder: (context) => CartScreen()));
                   },
                   icon: Icon(Icons.shopping_cart_outlined),
                   iconSize: 22,
@@ -442,7 +434,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(top: 15.0, left: 20),
             child: FreeBook(),
           ),
-          SizedBox(
+           SizedBox(
             height: 30,
           ),
         ],

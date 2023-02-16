@@ -60,7 +60,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(100),
                           child: Image.asset(
-                            "images/BG1.jpeg",
+                            "images/Phoy.jpg",
                             fit: BoxFit.cover,
                           ),
                         ),

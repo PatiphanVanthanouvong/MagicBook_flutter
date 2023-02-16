@@ -7,15 +7,11 @@ import '../screens.dart';
 import '../widgets/setting_widget_profile.dart';
 
 class CartScreen extends StatefulWidget {
-    String user;
-  CartScreen({required this.user}) : super();
   @override
-  State<CartScreen> createState() => _CartScreenState(user);
+  State<CartScreen> createState() => _CartScreenState();
 }
 
 class _CartScreenState extends State<CartScreen> {
-   late String user;
-
   var author = [
     "Tatsuya Endo",
     "One",
@@ -38,8 +34,6 @@ class _CartScreenState extends State<CartScreen> {
     "images/f1.webp",
     "images/f2.webp",
   ];
-  
-  _CartScreenState(String user);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -330,6 +324,29 @@ class CartWidget extends StatelessWidget {
                 },
               ),
             ),
+            // Center(
+            //   child: InkWell(
+            //     onTap: () {},
+            //     child: Container(
+            //       height: 40,
+            //       width: MediaQuery.of(context).size.width / 1.4,
+            //       decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(20),
+            //         color: Colors.redAccent,
+            //       ),
+            //       child: Center(
+            //         child: Text(
+            //           "ຈ່າຍເງິນ",
+            //           style: TextStyle(
+            //             fontSize: 20,
+            //             color: Colors.white,
+            //             fontWeight: FontWeight.w500,
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

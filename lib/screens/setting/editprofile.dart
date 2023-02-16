@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:magic_book_1/screens.dart';
 
-
 final formKey = GlobalKey<FormState>();
 
 class Editprofile extends StatelessWidget {
@@ -13,7 +12,7 @@ class Editprofile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 80,
+        toolbarHeight: 80,
         backgroundColor: Color(0xff4E6859),
         centerTitle: true,
         title: Text("ເເກ້ໄຂໜ້າຜູ້ໃຊ້"),
@@ -33,7 +32,7 @@ class Editprofile extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
                       child: Image.asset(
-                        "images/BG1.jpeg",
+                        "images/Phoy.jpg",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -149,8 +148,12 @@ class Editprofile extends StatelessWidget {
                       text: 'ເເກ້ໄຂໜ້າຜູ້ໃຊ້',
                       color: Color(0xff4E6859),
                       pressEvent: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Screens(user: '',)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Screens(
+                                      user: '',
+                                    )));
                       },
                     ),
                     SizedBox(
